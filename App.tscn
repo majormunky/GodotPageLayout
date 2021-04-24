@@ -104,7 +104,7 @@ custom_constants/separation = 25
 
 [node name="AdContainer" type="Node2D" parent="PageLayoutArea"]
 
-[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer/AddPageButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer/AddPageButton" to="." method="_on_AddPageButton_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomInButton" to="." method="_on_ZoomInButton_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomOutButton2" to="." method="_on_ZoomOutButton2_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer3/AddAdButton" to="." method="_on_AddAdButton_pressed"]
