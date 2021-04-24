@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="AdRect" type="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.815686, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 37.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1234"
