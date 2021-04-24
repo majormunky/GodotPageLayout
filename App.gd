@@ -10,6 +10,9 @@ const padding = 16
 var current_page_pos = Vector2()
 var scale = 0.75
 
+const MIN_ZOOM = 0.5
+const MAX_ZOOM = 1.1
+
 
 func _ready():
 	sidebar_width = sidebar.rect_size.x
@@ -47,8 +50,16 @@ func _on_Button_pressed():
 
 func _on_ZoomInButton_pressed():
 	scale += 0.05
+	if scale > MAX_ZOOM:
+		scale = MAX_ZOOM
+	print("Current Scale: ", scale)
 	update_page_zoom()
 
 
 func _on_ZoomOutButton2_pressed():
-	pass # Replace with function body.
+	scale -= 0.05
+	if scale < MIN_ZOOM:
+		scale = MIN_ZOOM
+	print("Current Scale: ", scale)
+	update_page_zoom()
+
