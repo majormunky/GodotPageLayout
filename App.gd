@@ -13,7 +13,7 @@ var AdRow = preload("res://AdRow.tscn")
 var sidebar_width: int
 const padding = 16
 var current_page_pos = Vector2()
-var scale = 0.75
+
 var is_dragging = false
 var holding_item = null
 
@@ -82,8 +82,8 @@ func update_page_zoom():
 		if cur_x == null:
 			cur_x = child.rect_position.x
 		
-		child.rect_scale.x = scale
-		child.rect_scale.y = scale
+		child.rect_scale.x = Utils.scale / 10
+		child.rect_scale.y = Utils.scale / 10
 		child.rect_position.x = cur_x
 		
 		cur_x += child.rect_size.x * child.rect_scale.x
@@ -94,8 +94,8 @@ func _on_Button_pressed():
 	var p = Page.instance()
 	p.rect_position.x = current_page_pos.x
 	p.rect_position.y = current_page_pos.y
-	p.rect_scale.x = scale
-	p.rect_scale.y = scale
+	p.rect_scale.x = Utils.scale / 10
+	p.rect_scale.y = Utils.scale / 10
 	
 	current_page_pos.x += p.rect_size.x * p.rect_scale.x
 	current_page_pos.x += padding
@@ -104,18 +104,18 @@ func _on_Button_pressed():
 
 
 func _on_ZoomInButton_pressed():
-	scale += 0.05
-	if scale > MAX_ZOOM:
-		scale = MAX_ZOOM
-	print("Current Scale: ", scale)
+	Utils.scale += 0.05
+	if Utils.scale > MAX_ZOOM:
+		Utils.scale = MAX_ZOOM
+	print("Current Scale: ", Utils.scale)
 	update_page_zoom()
 
 
 func _on_ZoomOutButton2_pressed():
-	scale -= 0.05
-	if scale < MIN_ZOOM:
-		scale = MIN_ZOOM
-	print("Current Scale: ", scale)
+	Utils.scale -= 0.05
+	if Utils.scale < MIN_ZOOM:
+		Utils.scale = MIN_ZOOM
+	print("Current Scale: ", Utils.scale)
 	update_page_zoom()
 
 

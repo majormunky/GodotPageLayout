@@ -1,7 +1,7 @@
 extends Node
 
 
-var scale = 0.75
+var scale = 10.0
 
 
 func columns_to_inches(col, page_def):
