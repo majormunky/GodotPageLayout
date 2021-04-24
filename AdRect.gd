@@ -39,6 +39,6 @@ func _gui_input(event):
 			emit_signal("ad_clicked", self, mouse_pos)
 
 
-func get_drag_data(position):
+func get_drag_data(_position):
 	var data = {}
 	return data
