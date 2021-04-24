@@ -7,7 +7,7 @@ var height = null
 var inches_wide = null
 var page_def = null
 
-signal ad_clicked(ad_rect)
+signal ad_clicked(ad_rect, mouse_offset)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,8 +34,9 @@ func update_size():
 func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			print("I've been clicked D:")
-			emit_signal("ad_clicked")
+			print(event.position)
+			var mouse_pos = event.position - Vector2(1, 1)
+			emit_signal("ad_clicked", self, mouse_pos)
 
 
 func get_drag_data(position):

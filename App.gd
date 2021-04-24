@@ -14,6 +14,7 @@ var AdRow = preload("res://AdRow.tscn")
 var sidebar_width: int
 const padding = 16
 var current_page_pos = Vector2()
+var mouse_offset = Vector2.ZERO
 
 var is_dragging = false
 var holding_item = null
@@ -57,17 +58,20 @@ func create_ad(data):
 	new_ad.rect_position.x = 300
 	new_ad.rect_position.y = 100
 	new_ad.setup(data, PAGE_DEF)
-	new_ad.connect("ad_clicked", self, "_on_ad_clicked", [new_ad])
+	new_ad.connect("ad_clicked", self, "_on_ad_clicked")
 	ad_container.add_child(new_ad)
 
 
-func _on_ad_clicked(target):
+func _on_ad_clicked(target, offset):
+	mouse_offset = offset
+	
 	if is_dragging:
 		is_dragging = false
 		holding_item = null
+		mouse_offset = Vector2.ZERO
 	else:
 		is_dragging = true
-		target.rect_position = get_global_mouse_position()
+		target.rect_position = get_global_mouse_position() - mouse_offset
 		holding_item = target
 
 
@@ -135,6 +139,5 @@ func _on_AddAdButton_pressed():
 
 func _input(event):
 	if is_dragging:
-		holding_item.rect_position = get_global_mouse_position()
-		
-		
+		holding_item.rect_position = get_global_mouse_position() - mouse_offset
+
