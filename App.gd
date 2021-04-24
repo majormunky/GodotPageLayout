@@ -69,6 +69,6 @@ func _on_ZoomOutButton2_pressed():
 
 func _on_AddAdButton_pressed():
 	var new_ad = AdRect.instance()
-	new_ad.rect_position.x = 200
+	new_ad.rect_position.x = 300
 	new_ad.rect_position.y = 100
 	ad_container.add_child(new_ad)
