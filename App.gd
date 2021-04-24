@@ -37,6 +37,15 @@ func add_row_to_ad_rows(data):
 	new_row.setup(data)
 
 
+func create_ad(data):
+	var new_ad = AdRect.instance()
+	new_ad.rect_position.x = 300
+	new_ad.rect_position.y = 100
+	new_ad.setup(data)
+	new_ad.connect("ad_clicked", self, "_on_ad_clicked", [new_ad])
+	ad_container.add_child(new_ad)
+
+
 func _on_ad_clicked(target):
 	if is_dragging:
 		is_dragging = false
@@ -48,8 +57,9 @@ func _on_ad_clicked(target):
 
 
 func _on_place_clicked(row):
-	print("Place clicked", row)
-
+	var data = row.get_data()
+	create_ad(data)
+	
 
 func update_page_zoom():
 	var cur_x = null
