@@ -1,9 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Page.gd" type="Script" id=1]
 
 [node name="Page" type="ColorRect"]
 margin_right = 250.0
 margin_bottom = 500.0
 color = Color( 0.701961, 0.701961, 0.701961, 1 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
