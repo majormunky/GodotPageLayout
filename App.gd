@@ -3,8 +3,11 @@ extends Control
 
 onready var sidebar = $Sidebar
 onready var page_container = $PageContainer
+onready var ad_container = $AdContainer
 
 var Page = preload("res://Page.tscn")
+var AdRect = preload("res://AdRect.tscn")
+
 var sidebar_width: int
 const padding = 16
 var current_page_pos = Vector2()
@@ -63,3 +66,9 @@ func _on_ZoomOutButton2_pressed():
 	print("Current Scale: ", scale)
 	update_page_zoom()
 
+
+func _on_AddAdButton_pressed():
+	var new_ad = AdRect.instance()
+	new_ad.rect_position.x = 200
+	new_ad.rect_position.y = 100
+	ad_container.add_child(new_ad)

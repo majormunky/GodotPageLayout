@@ -73,8 +73,24 @@ margin_right = 158.0
 margin_bottom = 20.0
 text = "Zoom Out"
 
+[node name="MarginContainer3" type="MarginContainer" parent="Sidebar/VBoxContainer"]
+margin_top = 108.0
+margin_right = 200.0
+margin_bottom = 128.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+
+[node name="AddAdButton" type="Button" parent="Sidebar/VBoxContainer/MarginContainer3"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 20.0
+text = "Add Ad"
+
 [node name="PageContainer" type="Node" parent="."]
+
+[node name="AdContainer" type="Node" parent="."]
 
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer/AddPageButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomInButton" to="." method="_on_ZoomInButton_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomOutButton2" to="." method="_on_ZoomOutButton2_pressed"]
+[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer3/AddAdButton" to="." method="_on_AddAdButton_pressed"]
