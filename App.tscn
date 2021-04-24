@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://App.gd" type="Script" id=1]
+
+[node name="App" type="Control"]
+anchor_left = -0.000976562
+anchor_top = -0.00166667
+anchor_right = 0.999023
+anchor_bottom = 0.998333
+margin_left = -1.0
+margin_right = -1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sidebar" type="Control" parent="."]
+anchor_bottom = 1.0
+margin_right = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Sidebar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 60.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="AddPageButton" type="Button" parent="Sidebar/VBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 180.0
+margin_bottom = 40.0
+text = "Add Page"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Sidebar/VBoxContainer"]
+margin_top = 64.0
+margin_right = 200.0
+margin_bottom = 104.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/VBoxContainer/MarginContainer2"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 20.0
+custom_constants/separation = 15
+
+[node name="ZoomInButton" type="Button" parent="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer"]
+margin_right = 66.0
+margin_bottom = 20.0
+text = "Zoom In"
+
+[node name="ZoomOutButton2" type="Button" parent="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer"]
+margin_left = 81.0
+margin_right = 158.0
+margin_bottom = 20.0
+text = "Zoom Out"
+
+[node name="PageContainer" type="Node" parent="."]
+
+[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer/AddPageButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomInButton" to="." method="_on_ZoomInButton_pressed"]
+[connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomOutButton2" to="." method="_on_ZoomOutButton2_pressed"]

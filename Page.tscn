@@ -1,0 +1,85 @@
+[gd_scene format=2]
+
+[node name="Page" type="ColorRect"]
+margin_right = 250.0
+margin_bottom = 500.0
+color = Color( 0.701961, 0.701961, 0.701961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="ColorRect" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 240.0
+margin_bottom = 490.0
+color = Color( 0.431373, 0.431373, 0.431373, 1 )
+
+[node name="ColumnContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Folio" type="MarginContainer" parent="ColumnContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 240.0
+margin_bottom = 490.0
+custom_constants/margin_top = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColumnContainer/Folio"]
+margin_top = 6.0
+margin_right = 230.0
+margin_bottom = 480.0
+
+[node name="ColorRect" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="ColorRect2" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="ColorRect3" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="ColorRect4" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_left = 117.0
+margin_right = 152.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="ColorRect5" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_left = 156.0
+margin_right = 191.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="ColorRect6" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
+margin_left = 195.0
+margin_right = 230.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 35, 0 )
