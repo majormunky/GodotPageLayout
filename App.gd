@@ -39,13 +39,47 @@ func _ready():
 	sidebar_width = sidebar.rect_size.x
 	current_page_pos.x = sidebar_width + padding
 	current_page_pos.y = padding
-	add_row_to_ad_rows({"ad_number": "123456", "columns": 1, "height": 3})
-	add_row_to_ad_rows({"ad_number": "412334", "columns": 2, "height": 4.0})
-	add_row_to_ad_rows({"ad_number": "456231", "columns": 3, "height": 10.0})
-	add_row_to_ad_rows({"ad_number": "123452", "columns": 4, "height": 15})
-	add_row_to_ad_rows({"ad_number": "412335", "columns": 5, "height": 18})
-	add_row_to_ad_rows({"ad_number": "452212", "columns": 6, "height": 20.1})
+	load_ads()
 
+
+func get_ads_from_csv():
+	var result = null
+	var file = File.new()
+	if file.file_exists("res://assets/data/ads.csv"):
+		print("File exists")
+		var open_file = file.open("res://assets/data/ads.csv", File.READ)
+		if open_file == OK:
+			result = file.get_as_text()
+		file.close()
+	else:
+		print("File does not exist")
+	return result
+
+
+func text_to_rows(data):
+	var result = []
+	var parts = data.split("\n")
+	var first = 0
+	for row in parts:
+		if first == 0:
+			first += 1
+			continue
+		
+		var row_parts = row.split(",")
+		var row_data = {
+			"ad_number": row_parts[0],
+			"columns": row_parts[1],
+			"height": row_parts[2],
+		}
+		result.append(row_data)
+	return result
+
+
+func load_ads():
+	var csv_data = get_ads_from_csv()
+	var rows = text_to_rows(csv_data)
+	for row in rows:
+		add_row_to_ad_rows(row)
 
 func add_row_to_ad_rows(data):
 	var new_row = AdRow.instance()
@@ -145,7 +179,7 @@ func _on_AddAdButton_pressed():
 	ad_container.add_child(new_ad)
 
 
-func _input(event):
+func _input(_event):
 	if is_dragging:
 		holding_item.rect_position = get_global_mouse_position() - mouse_offset
 
