@@ -12,6 +12,8 @@ var sidebar_width: int
 const padding = 16
 var current_page_pos = Vector2()
 var scale = 0.75
+var is_dragging = false
+var holding_item = null
 
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 1.1
@@ -22,6 +24,16 @@ func _ready():
 	current_page_pos.x = sidebar_width + padding
 	current_page_pos.y = padding
 
+
+func _on_ad_clicked(target):
+	if is_dragging:
+		is_dragging = false
+		holding_item = null
+	else:
+		is_dragging = true
+		target.rect_position = get_global_mouse_position()
+		holding_item = target
+	
 
 func update_page_zoom():
 	var cur_x = null
@@ -71,4 +83,14 @@ func _on_AddAdButton_pressed():
 	var new_ad = AdRect.instance()
 	new_ad.rect_position.x = 300
 	new_ad.rect_position.y = 100
+	
+	new_ad.connect("ad_clicked", self, "_on_ad_clicked", [new_ad])
+	
 	ad_container.add_child(new_ad)
+
+
+func _input(event):
+	if is_dragging:
+		holding_item.rect_position = get_global_mouse_position()
+		
+		
