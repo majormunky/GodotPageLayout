@@ -6,6 +6,7 @@ onready var page_container = $PageLayoutArea/PageContainer
 onready var ad_container = $PageLayoutArea/AdContainer
 onready var page_layout_area = $PageLayoutArea
 onready var ad_row_container = $Sidebar/VBoxContainer/MarginContainer4/AdRowContainer
+onready var page_count_label = $Sidebar/VBoxContainer/MarginContainer5/VBoxContainer/PageCountLabel
 
 var Page = preload("res://Page.tscn")
 var AdRect = preload("res://AdRect.tscn")
@@ -115,6 +116,12 @@ func _on_AddPageButton_pressed():
 	current_page_pos.x += padding
 	
 	page_container.add_child(p)
+	
+	update_page_count_label()
+
+
+func update_page_count_label():
+	page_count_label.text = "Pages: " + String(page_container.get_child_count())
 
 
 func _on_ZoomInButton_pressed():
