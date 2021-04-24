@@ -68,8 +68,8 @@ func text_to_rows(data):
 		var row_parts = row.split(",")
 		var row_data = {
 			"ad_number": row_parts[0],
-			"columns": row_parts[1],
-			"height": row_parts[2],
+			"columns": int(row_parts[1]),
+			"height": float(row_parts[2]),
 		}
 		result.append(row_data)
 	return result
