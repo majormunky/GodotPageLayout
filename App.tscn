@@ -98,9 +98,11 @@ margin_left = 20.0
 margin_right = 200.0
 custom_constants/separation = 25
 
-[node name="PageContainer" type="Node" parent="."]
+[node name="PageLayoutArea" type="Node2D" parent="."]
 
-[node name="AdContainer" type="Node" parent="."]
+[node name="PageContainer" type="Node2D" parent="PageLayoutArea"]
+
+[node name="AdContainer" type="Node2D" parent="PageLayoutArea"]
 
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer/AddPageButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Sidebar/VBoxContainer/MarginContainer2/HBoxContainer/ZoomInButton" to="." method="_on_ZoomInButton_pressed"]

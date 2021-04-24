@@ -2,8 +2,9 @@ extends Control
 
 
 onready var sidebar = $Sidebar
-onready var page_container = $PageContainer
-onready var ad_container = $AdContainer
+onready var page_container = $PageLayoutArea/PageContainer
+onready var ad_container = $PageLayoutArea/AdContainer
+onready var page_layout_area = $PageLayoutArea
 onready var ad_row_container = $Sidebar/VBoxContainer/MarginContainer4/AdRowContainer
 
 var Page = preload("res://Page.tscn")
@@ -75,6 +76,11 @@ func _on_place_clicked(row):
 	create_ad(data)
 	
 
+func update_zoom():
+	page_layout_area.scale.x = Utils.scale
+	page_layout_area.scale.y = Utils.scale
+
+
 func update_page_zoom():
 	var cur_x = null
 	
@@ -82,20 +88,24 @@ func update_page_zoom():
 		if cur_x == null:
 			cur_x = child.rect_position.x
 		
-		child.rect_scale.x = Utils.scale / 10
-		child.rect_scale.y = Utils.scale / 10
+		child.rect_scale.x = Utils.scale
+		child.rect_scale.y = Utils.scale
 		child.rect_position.x = cur_x
 		
 		cur_x += child.rect_size.x * child.rect_scale.x
 		cur_x += padding
+	
+	for ad_child in ad_container.get_children():
+		ad_child.rect_scale.x = Utils.scale
+		ad_child.rect_scale.y = Utils.scale
 
 
 func _on_Button_pressed():
 	var p = Page.instance()
 	p.rect_position.x = current_page_pos.x
 	p.rect_position.y = current_page_pos.y
-	p.rect_scale.x = Utils.scale / 10
-	p.rect_scale.y = Utils.scale / 10
+	p.rect_scale.x = Utils.scale
+	p.rect_scale.y = Utils.scale
 	
 	current_page_pos.x += p.rect_size.x * p.rect_scale.x
 	current_page_pos.x += padding
@@ -104,19 +114,13 @@ func _on_Button_pressed():
 
 
 func _on_ZoomInButton_pressed():
-	Utils.scale += 0.05
-	if Utils.scale > MAX_ZOOM:
-		Utils.scale = MAX_ZOOM
-	print("Current Scale: ", Utils.scale)
-	update_page_zoom()
+	Utils.zoom_in()
+	update_zoom()
 
 
 func _on_ZoomOutButton2_pressed():
-	Utils.scale -= 0.05
-	if Utils.scale < MIN_ZOOM:
-		Utils.scale = MIN_ZOOM
-	print("Current Scale: ", Utils.scale)
-	update_page_zoom()
+	Utils.zoom_out()
+	update_zoom()
 
 
 func _on_AddAdButton_pressed():
