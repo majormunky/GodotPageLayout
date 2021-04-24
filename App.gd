@@ -105,12 +105,13 @@ func update_page_zoom():
 		ad_child.rect_scale.y = Utils.scale
 
 
-func _on_AddPageButton_pressed():
+func _on_AddPageButton_pressed():	
 	var p = Page.instance()
 	p.rect_position.x = current_page_pos.x
 	p.rect_position.y = current_page_pos.y
 	p.rect_scale.x = Utils.scale
 	p.rect_scale.y = Utils.scale
+	p.page_num = page_container.get_child_count() + 1
 	
 	current_page_pos.x += p.rect_size.x * p.rect_scale.x
 	current_page_pos.x += padding

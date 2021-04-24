@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Page.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/Roboto/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+use_filter = true
+font_data = SubResource( 1 )
 
 [node name="Page" type="ColorRect"]
 margin_right = 120.0
@@ -11,9 +19,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PageNumContainer" type="MarginContainer" parent="."]
+margin_right = 120.0
+margin_bottom = 10.0
+custom_constants/margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumLabel" type="Label" parent="PageNumContainer"]
+margin_left = 10.0
+margin_right = 120.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.318176
+margin_right = -0.318176
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
