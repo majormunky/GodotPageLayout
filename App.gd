@@ -4,9 +4,11 @@ extends Control
 onready var sidebar = $Sidebar
 onready var page_container = $PageContainer
 onready var ad_container = $AdContainer
+onready var ad_row_container = $Sidebar/VBoxContainer/MarginContainer4/AdRowContainer
 
 var Page = preload("res://Page.tscn")
 var AdRect = preload("res://AdRect.tscn")
+var AdRow = preload("res://AdRow.tscn")
 
 var sidebar_width: int
 const padding = 16
@@ -23,6 +25,16 @@ func _ready():
 	sidebar_width = sidebar.rect_size.x
 	current_page_pos.x = sidebar_width + padding
 	current_page_pos.y = padding
+	add_row_to_ad_rows({"ad_number": "123456", "size": "6x20"})
+	add_row_to_ad_rows({"ad_number": "412334", "size": "3x10"})
+	add_row_to_ad_rows({"ad_number": "456231", "size": "6x10"})
+
+
+func add_row_to_ad_rows(data):
+	var new_row = AdRow.instance()
+	new_row.find_node("AdNumberLabel").text = data["ad_number"]
+	new_row.find_node("SizeLabel").text = data["size"]
+	ad_row_container.add_child(new_row)
 
 
 func _on_ad_clicked(target):
@@ -33,7 +45,7 @@ func _on_ad_clicked(target):
 		is_dragging = true
 		target.rect_position = get_global_mouse_position()
 		holding_item = target
-	
+
 
 func update_page_zoom():
 	var cur_x = null
