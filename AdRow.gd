@@ -18,3 +18,11 @@ func setup(data):
 func update_labels():
 	ad_number_label.text = ad_number
 	size_label.text = String(columns) + "x" + String(height) + '"'
+
+
+func get_data():
+	return {
+		"ad_number": ad_number,
+		"columns": columns,
+		"height": height,
+	}
