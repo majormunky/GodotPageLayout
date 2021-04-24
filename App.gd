@@ -19,15 +19,29 @@ var holding_item = null
 
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 1.1
+const PAGE_DEF = {
+	"columns": 6,
+	"column_width": 1.5856,
+	"column_height": 20.1,
+	"gutter_width": 0.0972,
+	"page_height": 20.25,
+	"margin_top": 0.5,
+	"margin_bottom": 0.5,
+	"margin_left": 0.375,
+	"margin_right": 0.375
+}
 
 
 func _ready():
 	sidebar_width = sidebar.rect_size.x
 	current_page_pos.x = sidebar_width + padding
 	current_page_pos.y = padding
-	add_row_to_ad_rows({"ad_number": "123456", "columns": 6, "height": 20.1})
-	add_row_to_ad_rows({"ad_number": "412334", "columns": 3, "height": 5.0})
-	add_row_to_ad_rows({"ad_number": "456231", "columns": 6, "height": 10.0})
+	add_row_to_ad_rows({"ad_number": "123456", "columns": 1, "height": 3})
+	add_row_to_ad_rows({"ad_number": "412334", "columns": 2, "height": 4.0})
+	add_row_to_ad_rows({"ad_number": "456231", "columns": 3, "height": 10.0})
+	add_row_to_ad_rows({"ad_number": "123452", "columns": 4, "height": 15})
+	add_row_to_ad_rows({"ad_number": "412335", "columns": 5, "height": 18})
+	add_row_to_ad_rows({"ad_number": "452212", "columns": 6, "height": 20.1})
 
 
 func add_row_to_ad_rows(data):
@@ -41,7 +55,7 @@ func create_ad(data):
 	var new_ad = AdRect.instance()
 	new_ad.rect_position.x = 300
 	new_ad.rect_position.y = 100
-	new_ad.setup(data)
+	new_ad.setup(data, PAGE_DEF)
 	new_ad.connect("ad_clicked", self, "_on_ad_clicked", [new_ad])
 	ad_container.add_child(new_ad)
 
