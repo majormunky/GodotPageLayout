@@ -1,7 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AdRow.gd" type="Script" id=1]
 
 [node name="AdRow" type="Control"]
 margin_right = 200.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,7 +29,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="PlaceButton" type="Button" parent="."]
 margin_left = 5.0
 margin_top = 1.0
 margin_right = 51.0

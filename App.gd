@@ -32,9 +32,9 @@ func _ready():
 
 func add_row_to_ad_rows(data):
 	var new_row = AdRow.instance()
-	new_row.find_node("AdNumberLabel").text = data["ad_number"]
-	new_row.find_node("SizeLabel").text = data["size"]
 	ad_row_container.add_child(new_row)
+	new_row.find_node("PlaceButton").connect("pressed", self, "_on_place_clicked", [new_row])
+	new_row.setup(data)
 
 
 func _on_ad_clicked(target):
@@ -45,6 +45,10 @@ func _on_ad_clicked(target):
 		is_dragging = true
 		target.rect_position = get_global_mouse_position()
 		holding_item = target
+
+
+func _on_place_clicked(row):
+	print("Place clicked", row)
 
 
 func update_page_zoom():
