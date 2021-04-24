@@ -25,9 +25,9 @@ func _ready():
 	sidebar_width = sidebar.rect_size.x
 	current_page_pos.x = sidebar_width + padding
 	current_page_pos.y = padding
-	add_row_to_ad_rows({"ad_number": "123456", "size": "6x20"})
-	add_row_to_ad_rows({"ad_number": "412334", "size": "3x10"})
-	add_row_to_ad_rows({"ad_number": "456231", "size": "6x10"})
+	add_row_to_ad_rows({"ad_number": "123456", "columns": 6, "height": 20.1})
+	add_row_to_ad_rows({"ad_number": "412334", "columns": 3, "height": 5.0})
+	add_row_to_ad_rows({"ad_number": "456231", "columns": 6, "height": 10.0})
 
 
 func add_row_to_ad_rows(data):
