@@ -21,6 +21,14 @@ func setup(data, _page_def):
 	height = data["height"]
 	page_def = _page_def
 	inches_wide = Utils.columns_to_inches(columns, page_def)
+	update_size()
+	
+
+func update_size():
+	var px = Utils.from_inch(inches_wide)
+	var py = Utils.from_inch(height)
+	self.rect_size.x = px
+	self.rect_size.y = py
 
 
 func _gui_input(event):
