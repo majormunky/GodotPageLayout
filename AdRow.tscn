@@ -1,0 +1,37 @@
+[gd_scene format=2]
+
+[node name="AdRow" type="Control"]
+margin_right = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdNumberLabel" type="Label" parent="."]
+margin_left = 64.331
+margin_top = 5.0
+margin_right = 104.331
+margin_bottom = 19.0
+text = "1234"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel" type="Label" parent="."]
+margin_left = 123.25
+margin_top = 4.55634
+margin_right = 163.25
+margin_bottom = 18.5563
+text = "6x10\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 51.0
+margin_bottom = 21.0
+text = "Place"
+__meta__ = {
+"_edit_use_anchors_": false
+}
