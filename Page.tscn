@@ -3,8 +3,8 @@
 [ext_resource path="res://Page.gd" type="Script" id=1]
 
 [node name="Page" type="ColorRect"]
-margin_right = 250.0
-margin_bottom = 500.0
+margin_right = 120.0
+margin_bottom = 220.0
 color = Color( 0.701961, 0.701961, 0.701961, 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -25,64 +25,57 @@ __meta__ = {
 [node name="Margin" type="ColorRect" parent="MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 240.0
-margin_bottom = 490.0
+margin_right = 110.0
+margin_bottom = 210.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
-[node name="ColumnContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+[node name="Folio" type="MarginContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 110.0
+margin_bottom = 210.0
+custom_constants/margin_top = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Folio" type="MarginContainer" parent="ColumnContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 240.0
-margin_bottom = 490.0
-custom_constants/margin_top = 6
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColumnContainer/Folio"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Folio"]
 margin_top = 6.0
-margin_right = 230.0
-margin_bottom = 480.0
+margin_right = 100.0
+margin_bottom = 200.0
+custom_constants/separation = 2
 
-[node name="ColorRect" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_right = 35.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column1" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_right = 15.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
 
-[node name="ColorRect2" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_left = 39.0
-margin_right = 74.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column2" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_left = 17.0
+margin_right = 32.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
 
-[node name="ColorRect3" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_left = 78.0
-margin_right = 113.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column3" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_left = 34.0
+margin_right = 49.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
 
-[node name="ColorRect4" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_left = 117.0
-margin_right = 152.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column4" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_left = 51.0
+margin_right = 66.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
 
-[node name="ColorRect5" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_left = 156.0
-margin_right = 191.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column5" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_left = 68.0
+margin_right = 83.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
 
-[node name="ColorRect6" type="ColorRect" parent="ColumnContainer/Folio/HBoxContainer"]
-margin_left = 195.0
-margin_right = 230.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 35, 0 )
+[node name="Column6" type="ColorRect" parent="MarginContainer/Folio/HBoxContainer"]
+margin_left = 85.0
+margin_right = 100.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 15, 0 )
