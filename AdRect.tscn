@@ -1,9 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AdRect.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 18 )
 
 [node name="AdRect" type="ColorRect"]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 color = Color( 0.815686, 0, 0, 1 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -13,3 +21,9 @@ margin_right = 37.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1234"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 20, 21 )
+shape = SubResource( 1 )
