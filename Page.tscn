@@ -7,7 +7,6 @@ font_path = "res://assets/fonts/Roboto/Roboto-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 8
-use_filter = true
 font_data = SubResource( 1 )
 
 [node name="Page" type="ColorRect"]
